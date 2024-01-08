@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="eqn">Equation (e.g: x * 2 + t):</label>
+            <input type="text", id="eqn", name="eqn", placeholder="Enter Equation f(x, t)" required>
+        </div>
+        <div>
+            <label for="range_1">Enter Range for x domain [seperated by spaces] (e.g: 10 20):</label>
+            <input type="text" name="range_1" id="range_1" placeholder="10 20">
+        </div>
+        <div>
+            <label for="range_2">Enter Range for t domain [(min max) seperated by spaces] e.g: (10 20):</label>
+            <input type="text" name="range_2" id="range_2" placeholder="10 20">
+        </div>
+        <div>
+            <label for="n_points">No of Data Points:</label>
+            <input type="number" name="n_points" id="n_points" placeholder="Enter No of Data Points" required>
+        </div>
+
+        <div>
+            <p>Select your plot...</p>
+            <label for="to_plot1">f(x, t) against x(m)</label>
+            <input type="radio" name="to_plot" id="to_plot1">
+            <label for="to_plot2">f(x, t) against t(s)</label>
+            <input type="radio" name="to_plot" id="to_plot2">
+        </div>
+
+        <input type="submit" value="Plot Equation">
+    </form>
+
+    <img src='{{ image_src }}' width="800" height="600" alt='plot'>
+</body>
+</html>
